@@ -4,9 +4,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>HelloWorld</title>
+    <title>Events</title>
 </head>
 <body>
-<a href="events.html">Click here to get the event list </a>
+<h1>Events list</h1>
+<ul>
+    <li><a href="/events">Click here to get the event list as a model view </a></li>
+    <li><a href="/eventsJson">Click here to get the event list as JSON response</a></li>
+</ul>
+
 </body>
 </html>
