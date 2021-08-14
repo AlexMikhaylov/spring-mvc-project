@@ -1,1 +1,5 @@
+com\example\entity\Event.class
+com\example\controllers\EventsRestController.class
 com\example\controllers\EventsController.class
+com\example\MainWebAppInitializer.class
+com\example\config\WebConfig.class
