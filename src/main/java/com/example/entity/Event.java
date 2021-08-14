@@ -1,23 +1,25 @@
 package com.example.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity(name="events")
 public class Event {
+
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
     
     private String name;
 
-    //TODO doesn't work
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private LocalDate localDate;
-
-    private List<Participant> participants;
 
     public Event() {
         super();
@@ -34,10 +36,4 @@ public class Event {
         this.localDate = localDate;
     }
 
-    public Event(String name, LocalDate localDate, List<Participant> participants) {
-        super();
-        this.name = name;
-        this.localDate = localDate;
-        this.participants = participants;
-    }
 }

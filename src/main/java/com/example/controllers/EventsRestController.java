@@ -26,8 +26,8 @@ public class EventsRestController {
 
         List<Event> events = new ArrayList<>();
         events.add(event);
-        events.add(new Event("Event2"));
-        events.add(new Event("Event3"));
+        events.add(new Event("Event2", LocalDate.now()));
+        events.add(new Event("Event3", LocalDate.now()));
 
         return events;
     }

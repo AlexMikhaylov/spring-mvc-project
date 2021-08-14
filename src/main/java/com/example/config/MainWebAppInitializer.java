@@ -34,13 +34,6 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
 
-
-//        EventController eventController = (EventController) context.getBean("eventController");
-//        Event event = eventController.createNewEvent();
-//        System.out.println("Event Name: " + event.getName());
-//        System.out.println("Event Date: " + event.getEventDate());
-//        System.out.println("Event Participants: " + event.getParticipants());
-
     }
 
 

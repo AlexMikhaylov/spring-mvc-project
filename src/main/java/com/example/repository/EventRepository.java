@@ -10,7 +10,7 @@ public class EventRepository {
 
     public Event createNewEvent() {
         Event event = new Event(
-                "Event1"
+                "Event1", LocalDate.now()
         );
 
         return event;
