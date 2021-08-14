@@ -10,9 +10,11 @@ public class Event {
     private List<Participant> participants;
 
     public Event() {
+        super();
     }
 
     public Event(String name, LocalDate eventDate, List<Participant> participants) {
+        super();
         this.name = name;
         this.eventDate = eventDate;
         this.participants = participants;

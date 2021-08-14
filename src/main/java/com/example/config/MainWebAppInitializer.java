@@ -1,6 +1,8 @@
 package com.example.config;
 
 import com.example.config.WebConfig;
+import com.example.controllers.EventController;
+import com.example.entity.Event;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -31,5 +33,15 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
+
+
+//        EventController eventController = (EventController) context.getBean("eventController");
+//        Event event = eventController.createNewEvent();
+//        System.out.println("Event Name: " + event.getName());
+//        System.out.println("Event Date: " + event.getEventDate());
+//        System.out.println("Event Participants: " + event.getParticipants());
+
     }
+
+
 }

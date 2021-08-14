@@ -1,11 +1,10 @@
 package com.example.controllers;
 
 import com.example.entity.Event;
+import com.example.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
@@ -16,13 +15,14 @@ import java.util.List;
 @RestController
 public class EventsRestController {
 
-    private Event event;
+    @Autowired
+    private EventService eventService;
 
-    @GetMapping("/eventsJson")
-    @ResponseBody
-    public String eventsJsonList(HttpServletResponse response) {
-        response.setContentType("application/json");
-        return "sample text";
+    @RequestMapping(value = "/eventsJson", method = RequestMethod.GET,headers="Accept=application/json")
+    public List eventsJsonList() {
+        List<Event> events = new ArrayList<>();
+        events.add(eventService.createNewEvent());
+        return events;
     }
 
 }
