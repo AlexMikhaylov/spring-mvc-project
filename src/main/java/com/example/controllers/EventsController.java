@@ -11,7 +11,7 @@ public class EventsController {
     public ModelAndView eventsList() {
         String eventsList = "Events list";
 
-        return  new ModelAndView("view/events", "message", eventsList);
+        return  new ModelAndView("events", "message", eventsList);
     }
 
 }

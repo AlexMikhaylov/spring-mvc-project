@@ -21,18 +21,18 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
         context.scan("com.example");
-        //context.register(WebConfig.class);
+        context.register(WebConfig.class);
 
         servletContext.addListener(new ContextLoaderListener(context));
         context.setServletContext(servletContext);
 
-        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
-        appContext.setConfigLocation("/WEB-INF/springmvc-dispatcher-servlet.xml");
+//        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
+//        appContext.setConfigLocation("/WEB-INF/springmvc-dispatcher-servlet.xml");
 
         // Create and register the DispatcherServlet
         DispatcherServlet dispatcherServlet =
-//                new DispatcherServlet(context);
-                new DispatcherServlet(appContext);
+                new DispatcherServlet(context);
+//                new DispatcherServlet(appContext);
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", dispatcherServlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
