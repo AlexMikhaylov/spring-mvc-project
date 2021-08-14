@@ -20,10 +20,9 @@ public class EventsRestController {
 
     @GetMapping("/eventsJson")
     @ResponseBody
-    public Event eventsJsonList(HttpServletResponse response) {
+    public String eventsJsonList(HttpServletResponse response) {
         response.setContentType("application/json");
-        event.setName("event 1");
-        return event;
+        return "sample text";
     }
 
 }

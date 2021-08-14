@@ -1,9 +1,11 @@
 package com.example;
 
+import com.example.config.WebConfig;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
+import org.springframework.web.context.support.XmlWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
@@ -13,17 +15,22 @@ import javax.servlet.ServletRegistration;
 // To bootstrap an application that loads this configuration, we also need an initializer class
 public class MainWebAppInitializer implements WebApplicationInitializer {
     @Override
-    public void onStartup(final ServletContext sc) throws ServletException {
+    public void onStartup(ServletContext servletContext) throws ServletException {
 
-        AnnotationConfigWebApplicationContext root =
-                new AnnotationConfigWebApplicationContext();
+        // Load Spring web application configuration
+        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
-        root.scan("com.example");
-        sc.addListener(new ContextLoaderListener(root));
+        context.scan("com.example");
+        //context.register(WebConfig.class);
 
-        ServletRegistration.Dynamic appServlet =
-                sc.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));
-        appServlet.setLoadOnStartup(1);
-        appServlet.addMapping("/");
+        servletContext.addListener(new ContextLoaderListener(context));
+        XmlWebApplicationContext appContext = new XmlWebApplicationContext();
+        appContext.setConfigLocation("/WEB-INF/springmvc-dispatcher-servlet.xml");
+
+        // Create and register the DispatcherServlet
+        DispatcherServlet servlet = new DispatcherServlet(appContext);
+        ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher", servlet);
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
     }
 }
