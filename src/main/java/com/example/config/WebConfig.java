@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @Configuration
 // to define and scan additional controller classes
-@ComponentScan(basePackages = { "com.example.controllers" })
+@ComponentScan(basePackages = { "com.example" })
 // If we want to customize this configuration, we need to implement the WebMvcConfigurer interface
 public class WebConfig implements WebMvcConfigurer {
 
@@ -33,6 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
         bean.setViewClass(JstlView.class);
         bean.setPrefix("/WEB-INF/view/");
         bean.setSuffix(".jsp");
+        bean.setExposeContextBeansAsAttributes(true);
 
         return bean;
     }
