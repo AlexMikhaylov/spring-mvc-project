@@ -1,7 +1,10 @@
 package com.example.entity;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Participant {
 
     private String firstname;
@@ -9,35 +12,19 @@ public class Participant {
     private List<Event> events;
 
     public Participant() {
+        super();
+    }
+
+    public Participant(String firstname, String lastname) {
+        super();
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public Participant(String firstname, String lastname, List<Event> events) {
+        super();
         this.firstname = firstname;
         this.lastname = lastname;
-        this.events = events;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
         this.events = events;
     }
 }

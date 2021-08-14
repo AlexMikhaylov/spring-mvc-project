@@ -1,46 +1,43 @@
 package com.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Data;
+
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
+@Data
 public class Event {
     
     private String name;
-    private LocalDate eventDate = LocalDate.now();
+
+    //TODO doesn't work
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    private LocalDate localDate;
+
     private List<Participant> participants;
 
     public Event() {
         super();
     }
 
-    public Event(String name, LocalDate eventDate, List<Participant> participants) {
+    public Event(String name) {
         super();
         this.name = name;
-        this.eventDate = eventDate;
-        this.participants = participants;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Event(String name, LocalDate localDate) {
+        super();
         this.name = name;
+        this.localDate = localDate;
     }
 
-    public LocalDate getEventDate() {
-        return eventDate;
-    }
-
-    public void setEventDate(LocalDate eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public List<Participant> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Participant> participants) {
+    public Event(String name, LocalDate localDate, List<Participant> participants) {
+        super();
+        this.name = name;
+        this.localDate = localDate;
         this.participants = participants;
     }
 }

@@ -13,10 +13,12 @@
         <h3>Name</h3>
         ${message.getName()}
     </div>
+
     <div>
         <h3>Date</h3>
-        ${message.getEventDate().toString()}
+        ${message.getLocalDate().toString()}
     </div>
+
     <div>
         <h3>Participants</h3>
         ${message.getParticipants().size()}
