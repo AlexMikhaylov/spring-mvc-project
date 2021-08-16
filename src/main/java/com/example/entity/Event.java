@@ -6,8 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity(name="events")
@@ -15,13 +14,16 @@ public class Event {
 
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     
     private String name;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private LocalDate localDate;
+
+    @ManyToMany
+    private Set<Participant> participants;
 
     public Event() {
         super();
@@ -36,6 +38,13 @@ public class Event {
         super();
         this.name = name;
         this.localDate = localDate;
+    }
+
+    public Event(Long id, String name, LocalDate localDate, Set<Participant> participants) {
+        this.id = id;
+        this.name = name;
+        this.localDate = localDate;
+        this.participants = participants;
     }
 
     public String convertLocalDateToString(LocalDate localDate){

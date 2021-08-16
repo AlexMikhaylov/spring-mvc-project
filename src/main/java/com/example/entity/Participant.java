@@ -2,14 +2,23 @@ package com.example.entity;
 
 import lombok.Data;
 
-import java.util.List;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
+@Entity(name="participants")
 public class Participant {
+
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    private Long id;
 
     private String firstname;
     private String lastname;
-    private List<Event> events;
+
+    @ManyToMany
+    private Set<Event> events;
 
     public Participant() {
         super();
@@ -21,7 +30,7 @@ public class Participant {
         this.lastname = lastname;
     }
 
-    public Participant(String firstname, String lastname, List<Event> events) {
+    public Participant(String firstname, String lastname, Set<Event> events) {
         super();
         this.firstname = firstname;
         this.lastname = lastname;
