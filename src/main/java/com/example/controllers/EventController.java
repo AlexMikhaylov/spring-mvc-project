@@ -18,7 +18,6 @@ public class EventController {
     @GetMapping
     public ModelAndView getEventsList() {
         Event event = eventService.createNewEvent();
-        String eventName = event.getName();
 
         return  new ModelAndView("events", "message", event);
     }

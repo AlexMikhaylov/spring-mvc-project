@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
 
 @Data
@@ -34,6 +36,13 @@ public class Event {
         super();
         this.name = name;
         this.localDate = localDate;
+    }
+
+    public String convertLocalDateToString(LocalDate localDate){
+        if(localDate != null){
+            return this.localDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+        }
+        return "";
     }
 
 }
