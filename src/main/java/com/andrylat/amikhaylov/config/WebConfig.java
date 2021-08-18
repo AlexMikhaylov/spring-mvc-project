@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"com.andrylat"})
+@ComponentScan(basePackages = {"com.andrylat.amikhaylov"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
@@ -19,7 +19,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
     }
 
-    //In this example, we've registered a ViewResolver bean that will return .jsp views from the /WEB-INF/view directory.
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
