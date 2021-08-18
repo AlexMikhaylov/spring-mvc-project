@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import com.example.entity.Event;
+import com.example.entities.Event;
 import com.example.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

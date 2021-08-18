@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.entity.Event;
+import com.example.entities.Event;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
