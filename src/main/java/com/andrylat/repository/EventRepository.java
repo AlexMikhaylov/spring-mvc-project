@@ -1,6 +1,6 @@
-package com.example.repository;
+package com.andrylat.repository;
 
-import com.example.entities.Event;
+import com.andrylat.entities.Event;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;

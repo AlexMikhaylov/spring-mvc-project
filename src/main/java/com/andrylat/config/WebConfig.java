@@ -1,4 +1,4 @@
-package com.example.config;
+package com.andrylat.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "com.example" })
+@ComponentScan(basePackages = {"com.andrylat"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Override

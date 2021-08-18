@@ -1,7 +1,7 @@
-package com.example.controllers;
+package com.andrylat.controllers;
 
-import com.example.entities.Event;
-import com.example.service.EventService;
+import com.andrylat.entities.Event;
+import com.andrylat.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

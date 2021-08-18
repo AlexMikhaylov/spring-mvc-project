@@ -1,4 +1,4 @@
-package com.example.config;
+package com.andrylat.config;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -15,7 +15,6 @@ public class MainWebAppInitializer implements WebApplicationInitializer {
 
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
-        context.scan("com.example");
         context.register(WebConfig.class);
 
         servletContext.addListener(new ContextLoaderListener(context));

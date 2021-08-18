@@ -1,7 +1,7 @@
-package com.example.service;
+package com.andrylat.service;
 
-import com.example.entities.Event;
-import com.example.repository.EventRepository;
+import com.andrylat.entities.Event;
+import com.andrylat.repository.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
