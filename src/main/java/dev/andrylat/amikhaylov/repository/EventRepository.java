@@ -1,6 +1,6 @@
-package com.example.repository;
+package dev.andrylat.amikhaylov.repository;
 
-import com.example.entity.Event;
+import dev.andrylat.amikhaylov.entities.Event;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -9,11 +9,8 @@ import java.time.LocalDate;
 public class EventRepository {
 
     public Event createNewEvent() {
-        Event event = new Event(
+        return new Event(
                 "Event1", LocalDate.now()
         );
-
-        return event;
-
     }
 }

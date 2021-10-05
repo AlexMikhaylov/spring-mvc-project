@@ -16,7 +16,7 @@
 
     <div>
         <h3>Date</h3>
-        ${message.convertLocalDateToString(message.getLocalDate())}
+        ${message.convertLocalDateToString()}
     </div>
 
 </section>

@@ -1,14 +1,10 @@
-package com.example.controllers;
+package dev.andrylat.amikhaylov.controllers;
 
-import com.example.entity.Event;
-import com.example.service.EventService;
+import dev.andrylat.amikhaylov.entities.Event;
+import dev.andrylat.amikhaylov.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +15,7 @@ public class EventsRestController {
     @Autowired
     private EventService eventService;
 
-    @GetMapping(value = "/eventsJson", produces = "application/json")
+    @GetMapping(value = "/eventsJson")
     public List<Event> getEventsJsonList() {
 
         Event event = eventService.createNewEvent();

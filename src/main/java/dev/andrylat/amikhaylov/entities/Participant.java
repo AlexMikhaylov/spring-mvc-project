@@ -1,4 +1,4 @@
-package com.example.entity;
+package dev.andrylat.amikhaylov.entities;
 
 import lombok.Data;
 
@@ -15,11 +15,11 @@ public class Participant {
     private Long id;
 
     private String firstname;
+
     private String lastname;
 
     @ManyToMany
     private Set<Event> events;
-
     public Participant() {
         super();
     }

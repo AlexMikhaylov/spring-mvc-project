@@ -1,7 +1,7 @@
-package com.example.controllers;
+package dev.andrylat.amikhaylov.controllers;
 
-import com.example.entity.Event;
-import com.example.service.EventService;
+import dev.andrylat.amikhaylov.entities.Event;
+import dev.andrylat.amikhaylov.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

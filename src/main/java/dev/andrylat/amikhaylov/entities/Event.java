@@ -1,4 +1,4 @@
-package com.example.entity;
+package dev.andrylat.amikhaylov.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -8,9 +8,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+//могут возникнуть проблемы с сериалиацией.
 @Data
 @Entity(name="events")
 public class Event {
+
+    private static final String DATE_PATTERN = "dd.MM.yyyy";
 
     @Id
     @Column(name="id")
@@ -19,7 +22,8 @@ public class Event {
     
     private String name;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    //повторяется формат
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_PATTERN)
     private LocalDate localDate;
 
     @ManyToMany
@@ -47,11 +51,8 @@ public class Event {
         this.participants = participants;
     }
 
-    public String convertLocalDateToString(LocalDate localDate){
-        if(localDate != null){
-            return this.localDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        }
-        return "";
+    public String convertLocalDateToString(){
+            return this.localDate.format(DateTimeFormatter.ofPattern(DATE_PATTERN));
     }
 
 }
